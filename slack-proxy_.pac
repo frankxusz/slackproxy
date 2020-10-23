@@ -1,14 +1,9 @@
 function FindProxyForURL(url, host)
 {
-    url  = url.toLowerCase();
-    host = host.toLowerCase();
-
-    if (shExpMatch(url,"*slack*")  ||
-        shExpMatch(url,"*mitbbs*") ||
-        shExpMatch(url,"*google*") ||
-        shExpMatch(url,"*youtube*")) {
-	        return "PROXY proxy.emea.ibm.com:8080; DIRECT";
+    if (shExpMatch(url,"*slack*") ||
+        shExpMatch(url,"*.ibm.com") ||
+        shExpMatch(url,"*github*")) {
+	        return "PROXY proxy.p3.event.ibm.com:8080; DIRECT";
 		}
-	
-    return "DIRECT";
+    return "PROXY proxy.us.ibm.com:8080; DIRECT";
 }
